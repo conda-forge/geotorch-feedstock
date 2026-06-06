@@ -1,13 +1,13 @@
 {% set name = "geotorch" %}
-{% set version = "0.3.0" %}
+{% set version = "0.4.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/geotorch-{{ version }}.tar.gz
-  sha256: fe99106d90667a93288d7e2ce349d5757475320332ccc058af270c043ed2c3f4
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/geotorch-{{ version }}.tar.gz
+  sha256: 104ae1e5da30ff7a2684369606fdd1bdac2715a1af307e27a702ea2433af0da9
 
 build:
   number: 0

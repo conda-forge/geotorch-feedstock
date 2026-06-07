@@ -1,0 +1,44 @@
+schema_version: 1
+
+context:
+  name: geotorch
+  version: "0.4.0"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/geotorch-${{ version }}.tar.gz
+  sha256: 104ae1e5da30ff7a2684369606fdd1bdac2715a1af307e27a702ea2433af0da9
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - setuptools >=77
+  run:
+    - python >=${{ python_min }}
+    - pytorch >=2.6
+
+tests:
+  - python:
+      imports:
+        - geotorch
+      pip_check: true
+      python_version: ${{ python_min }}.*
+
+about:
+  homepage: https://github.com/Lezcano/geotorch
+  summary: Constrained Optimization and Manifold Optimization in Pytorch
+  license: MIT
+  license_file: LICENSE
+
+extra:
+  recipe-maintainers:
+    - wolfv
